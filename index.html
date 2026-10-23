@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>灯灯喜剧 DengDeng Comedy · 西班牙中文喜剧俱乐部</title>
+<meta name="description" content="灯灯喜剧——西班牙本土中文喜剧俱乐部，2023年成立于巴塞罗那，常驻马德里与巴塞罗那，长期举办中文脱口秀开放麦与知名演员巡演。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#FFDE00;
+    --yellow-deep:#F5C400;
+    --ink:#16130E;
+    --paper:#FFF9E8;
+    --paper-2:#FFF3D0;
+    --red:#E8402A;
+    --radius:20px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--yellow);color:var(--ink);}
+
+  /* ---------- 顶部导航 ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;
+    background:rgba(255,249,232,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:2px solid var(--ink);
+  }
+  .nav-logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;text-decoration:none;color:var(--ink);}
+  .nav-logo .dot{width:34px;height:34px;border-radius:50%;background:var(--yellow);border:2px solid var(--ink);display:grid;place-items:center;font-size:16px;font-weight:900;}
+  .nav-links{display:flex;gap:26px;align-items:center;}
+  .nav-links a{text-decoration:none;color:var(--ink);font-weight:700;font-size:15px;position:relative;padding:2px 0;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:3px;background:var(--yellow-deep);transition:width .25s;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{background:var(--ink);color:var(--yellow)!important;padding:8px 18px!important;border-radius:999px;font-size:14px;}
+  .nav-cta::after{display:none;}
+  .nav-cta:hover{background:var(--red);color:#fff!important;}
+  .menu-btn{display:none;background:none;border:2px solid var(--ink);border-radius:10px;padding:6px 10px;font-size:18px;cursor:pointer;}
+  @media (max-width:760px){
+    .nav-links{position:fixed;top:64px;right:0;flex-direction:column;background:var(--paper);border:2px solid var(--ink);border-right:none;padding:20px 28px;border-radius:16px 0 0 16px;transform:translateX(120%);transition:transform .3s;}
+    .nav-links.open{transform:none;}
+    .menu-btn{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:120px 20px 60px;position:relative;
+  }
+  .hero .halo{
+    position:absolute;width:min(72vw,560px);height:min(72vw,560px);border-radius:50%;
+    background:radial-gradient(circle,rgba(255,222,0,.35),transparent 65%);
+    z-index:-1;
+  }
+  .hero-logo{width:min(46vw,240px);margin-bottom:28px;filter:drop-shadow(0 10px 0 rgba(22,19,14,.12));}
+  .hero h1{
+    font-size:clamp(44px,9vw,92px);font-weight:900;line-height:1.1;letter-spacing:.04em;
+  }
+  .hero h1 .eng{
+    display:block;font-family:"Archivo Black",sans-serif;font-size:clamp(15px,2.6vw,24px);
+    letter-spacing:.42em;margin-top:12px;color:var(--ink);opacity:.75;
+  }
+  .hero .tagline{
+    margin-top:22px;font-size:clamp(16px,2.6vw,21px);font-weight:700;
+    display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;
+  }
+  .pill{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:5px 16px;font-size:14px;font-weight:700;box-shadow:3px 3px 0 var(--ink);}
+  .hero .btns{margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
+  /* 宽屏桌面：左右分栏 */
+  @media (min-width:960px){
+    .hero{text-align:left;padding-top:90px;}
+    .hero-inner{
+      display:grid;grid-template-columns:340px 1fr;gap:72px;align-items:center;
+      max-width:1160px;width:100%;
+    }
+    .hero-inner .halo{left:120px;}
+    .hero-logo{width:320px;margin-bottom:0;}
+    .hero h1{font-size:96px;}
+    .hero h1 .eng{font-size:26px;letter-spacing:.5em;}
+    .hero .tagline{justify-content:flex-start;font-size:21px;}
+    .hero .btns{justify-content:flex-start;}
+    .hero .scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);}
+  }
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:900;font-size:16px;
+    padding:14px 32px;border-radius:999px;border:2px solid var(--ink);
+    transition:transform .15s, box-shadow .15s;
+  }
+  .btn-primary{background:var(--yellow);color:var(--ink);box-shadow:5px 5px 0 var(--ink);}
+  .btn-ghost{background:#fff;color:var(--ink);box-shadow:5px 5px 0 rgba(22,19,14,.25);}
+  .btn:hover{transform:translate(-2px,-2px);}
+  .btn-primary:hover{box-shadow:8px 8px 0 var(--ink);}
+  .btn-ghost:hover{box-shadow:8px 8px 0 rgba(22,19,14,.35);}
+  .scroll-hint{margin-top:56px;font-size:13px;letter-spacing:.3em;opacity:.55;font-weight:700;}
+
+  /* ---------- 跑马灯 ---------- */
+  .marquee{
+    background:var(--ink);color:var(--yellow);overflow:hidden;white-space:nowrap;
+    border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+    padding:12px 0;font-weight:900;font-size:17px;letter-spacing:.12em;
+  }
+  .marquee-inner{display:inline-block;animation:scroll 22s linear infinite;}
+  .marquee span{margin:0 22px;}
+  .marquee .star{color:#fff;}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- 通用板块 ---------- */
+  section{padding:96px 20px;}
+  .wrap{max-width:1160px;margin:0 auto;}
+  @media (min-width:960px){
+    section{padding:120px 24px;}
+    .stats{gap:20px;}
+    .stat .num{font-size:40px;}
+    .stat{padding:26px 20px;}
+    .cast-grid{gap:24px;}
+    .contact-grid{gap:22px;}
+    .about-grid{gap:64px;}
+  }
+  .sec-head{text-align:center;margin-bottom:56px;}
+  .sec-kicker{
+    display:inline-block;background:var(--ink);color:var(--yellow);
+    font-size:13px;font-weight:900;letter-spacing:.35em;padding:6px 18px;border-radius:999px;margin-bottom:16px;
+  }
+  .sec-title{font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1.2;}
+  .sec-sub{margin-top:12px;font-size:16px;opacity:.72;font-weight:500;}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- 关于我们 ---------- */
+  #about{background:#fff;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+  .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start;}
+  @media (max-width:820px){.about-grid{grid-template-columns:1fr;}}
+  .about-text p{margin-bottom:18px;font-size:17px;}
+  .about-text strong{background:linear-gradient(transparent 62%,var(--yellow) 62%);padding:0 2px;}
+  .quote{
+    border-left:6px solid var(--yellow);background:var(--paper);
+    padding:18px 22px;border-radius:0 var(--radius) var(--radius) 0;
+    font-weight:700;margin-top:26px;
+  }
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .stat{
+    background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);
+    padding:22px 18px;text-align:center;box-shadow:5px 5px 0 var(--ink);
+  }
+  .stat .num{font-family:"Archivo Black",sans-serif;font-size:34px;color:var(--red);line-height:1.1;}
+  .stat .lbl{font-size:13px;font-weight:700;margin-top:8px;letter-spacing:.05em;}
+  .stat.wide{grid-column:1/-1;}
+
+  /* ---------- 近期演出 ---------- */
+  #next{background:var(--yellow);border-bottom:2px solid var(--ink);}
+  .next-card{
+    background:#fff;border:2px solid var(--ink);border-radius:28px;
+    box-shadow:8px 8px 0 var(--ink);
+    padding:clamp(28px,5vw,52px);display:grid;grid-template-columns:minmax(180px,260px) 1fr;gap:36px;align-items:center;
+  }
+  .next-poster{width:100%;border:2px solid var(--ink);border-radius:16px;display:block;}
+  @media (max-width:700px){.next-card{grid-template-columns:1fr;text-align:center;}.next-poster{max-width:300px;margin:0 auto;}}
+  .date-badge{
+    width:150px;height:150px;border:3px solid var(--ink);border-radius:24px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--ink);color:#fff;
+    margin:0 auto;
+  }
+  .date-badge .d{font-family:"Archivo Black",sans-serif;font-size:44px;color:var(--yellow);line-height:1;}
+  .date-badge .m{font-weight:900;font-size:18px;margin-top:6px;letter-spacing:.15em;}
+  .next-card h3{font-size:clamp(24px,4vw,34px);font-weight:900;}
+  .next-card .cast{margin-top:10px;font-weight:700;font-size:16px;}
+  .next-card .meta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;}
+  @media (max-width:700px){.next-card .meta{justify-content:center;}}
+  .next-card .note{margin-top:14px;font-size:14px;opacity:.66;}
+
+  /* ---------- 演员 ---------- */
+  .cast-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
+  .cast-card{
+    background:#fff;border:2px solid var(--ink);border-radius:var(--radius);
+    padding:26px 22px;position:relative;overflow:hidden;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .cast-card:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink);}
+  .cast-card .avatar{
+    width:64px;height:64px;border-radius:50%;background:var(--yellow);
+    border:2px solid var(--ink);display:grid;place-items:center;
+    font-size:26px;font-weight:900;margin-bottom:16px;overflow:hidden;
+  }
+  .cast-card .avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+  .cast-card h4{font-size:20px;font-weight:900;}
+  .cast-card .show{font-size:14px;font-weight:700;color:var(--red);margin-top:4px;}
+  .cast-card p{font-size:14px;margin-top:10px;opacity:.78;}
+  .cast-card .yr{
+    position:absolute;top:16px;right:-34px;transform:rotate(38deg);
+    background:var(--ink);color:var(--yellow);font-size:12px;font-weight:900;
+    padding:3px 40px;letter-spacing:.1em;
+  }
+
+  /* ---------- 海报与现场 ---------- */
+  #gallery{background:var(--paper-2);border-top:2px solid var(--ink);}
+  .masonry{columns:3;column-gap:20px;}
+  .masonry figure{
+    break-inside:avoid;margin:0 0 20px;background:#fff;
+    border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;
+    box-shadow:5px 5px 0 rgba(22,19,14,.15);
+  }
+  .masonry img{width:100%;display:block;}
+  .masonry figcaption{
+    padding:10px 14px;font-size:13px;font-weight:700;border-top:2px solid var(--ink);
+    display:flex;align-items:center;gap:8px;
+  }
+  .masonry figcaption .dot-tag{background:var(--yellow);border:1.5px solid var(--ink);border-radius:999px;padding:1px 9px;font-size:11px;white-space:nowrap;}
+  @media (max-width:900px){.masonry{columns:2;}}
+  @media (max-width:560px){.masonry{columns:1;}}
+
+  /* ---------- 招募 ---------- */
+  #join{background:var(--ink);color:var(--paper);}
+  #join .sec-title{color:#fff;}
+  #join .sec-sub{color:rgba(255,249,232,.7);}
+  .join-box{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px;
+  }
+  @media (max-width:760px){.join-box{grid-template-columns:1fr;}}
+  .join-item{
+    border:2px solid rgba(255,249,232,.25);border-radius:var(--radius);padding:28px;
+    background:rgba(255,255,255,.04);
+  }
+  .join-item h4{color:var(--yellow);font-size:19px;font-weight:900;margin-bottom:10px;}
+  .join-item p{font-size:15px;color:rgba(255,249,232,.82);}
+
+  /* ---------- 联系 ---------- */
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
+  .contact-card{
+    background:#fff;border:2px solid var(--ink);border-radius:var(--radius);
+    padding:26px 22px;text-decoration:none;color:var(--ink);
+    box-shadow:5px 5px 0 rgba(22,19,14,.18);
+    transition:transform .2s, box-shadow .2s;display:block;
+  }
+  .contact-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink);}
+  .contact-card .ico{
+    width:52px;height:52px;border-radius:14px;background:var(--yellow);
+    border:2px solid var(--ink);display:grid;place-items:center;font-size:24px;margin-bottom:14px;
+  }
+  .contact-card h4{font-size:17px;font-weight:900;}
+  .contact-card .val{font-size:14px;margin-top:6px;opacity:.75;word-break:break-all;}
+
+  footer{
+    background:var(--ink);color:rgba(255,249,232,.65);text-align:center;
+    padding:34px 20px;font-size:13px;border-top:2px solid var(--yellow);
+  }
+  footer .brand{color:var(--yellow);font-weight:900;font-size:15px;}
+</style>
+</head>
+<body>
+
+<!-- 导航 -->
+<nav>
+  <a class="nav-logo" href="#top"><span class="dot">灯</span>灯灯喜剧</a>
+  <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <div class="nav-links">
+    <a href="#about">关于我们</a>
+    <a href="#next">近期演出</a>
+    <a href="#cast">曾经的舞台</a>
+    <a href="#join">加入我们</a>
+    <a class="nav-cta" href="#contact">联系我们</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="halo"></div>
+    <svg class="hero-logo" viewBox="0 0 200 200" aria-label="灯灯喜剧 Logo">
+    <circle cx="100" cy="100" r="96" fill="#FFDE00" stroke="#16130E" stroke-width="5"/>
+    <!-- 小人 + 麦克风架 -->
+    <g stroke="#16130E" stroke-width="6" stroke-linecap="round" fill="none">
+      <circle cx="72" cy="70" r="11" fill="#16130E" stroke="none"/>
+      <path d="M72 82 L72 122"/>
+      <path d="M72 94 L52 106"/>
+      <path d="M72 94 L92 106"/>
+      <path d="M72 122 L58 150"/>
+      <path d="M72 122 L86 150"/>
+      <!-- 立式麦克风 -->
+      <path d="M128 62 L128 150"/>
+      <path d="M114 150 L142 150"/>
+      <ellipse cx="128" cy="50" rx="13" ry="17" fill="#16130E" stroke="none"/>
+    </g>
+    <text x="100" y="178" text-anchor="middle" font-size="21" font-weight="900" fill="#16130E" font-family="'Noto Sans SC',sans-serif">灯灯喜剧</text>
+  </svg>
+    <div>
+      <h1>
+        灯灯喜剧
+        <span class="eng">DENG DENG COMEDY</span>
+      </h1>
+      <div class="tagline">
+        <span class="pill">西班牙本土中文喜剧俱乐部</span>
+        <span class="pill">🇪🇸 马德里 · 巴塞罗那</span>
+      </div>
+      <div class="btns">
+        <a class="btn btn-primary" href="#next">看看近期演出</a>
+        <a class="btn btn-ghost" href="#cast">认识一下我们</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL ↓</div>
+</header>
+
+<!-- 跑马灯 -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-inner">
+    <span>开放麦 <i class="star">✦</i></span><span>中文脱口秀 <i class="star">✦</i></span><span>专场巡演 <i class="star">✦</i></span><span>马德里 <i class="star">✦</i></span><span>巴塞罗那 <i class="star">✦</i></span><span>用真心做喜剧 <i class="star">✦</i></span>
+    <span>开放麦 <i class="star">✦</i></span><span>中文脱口秀 <i class="star">✦</i></span><span>专场巡演 <i class="star">✦</i></span><span>马德里 <i class="star">✦</i></span><span>巴塞罗那 <i class="star">✦</i></span><span>用真心做喜剧 <i class="star">✦</i></span>
+  </div>
+</div>
+
+<!-- 关于我们 -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">ABOUT US</span>
+      <h2 class="sec-title">关于灯灯</h2>
+      <p class="sec-sub">一家认真做喜剧的俱乐部</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p><strong>灯灯喜剧</strong>是西班牙本土的中文喜剧俱乐部，<strong>2023 年 1 月成立于巴塞罗那</strong>，现常驻马德里与巴塞罗那，长期举办中文喜剧演出。</p>
+        <p>俱乐部现有多位长居西班牙本地的中文演员，每月举办固定的<strong>开放麦</strong>演出，也定期邀请欧洲各地及国内知名演员前来巡演，希望给观众带来优质的观演体验。</p>
+        <p>我们也为想要尝试这种表演模式的你提供平台——你只需要大胆一些、勇于尝试。因为走出这一步，或许你可以发现新世界；即使之后想退一步，你也会获得一种特别的经历。</p>
+        <div class="quote">"如何认真对待喜剧？很简单——用真心！"</div>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><div class="num">2023.1</div><div class="lbl">成立于巴塞罗那</div></div>
+        <div class="stat"><div class="num">10+</div><div class="lbl">常驻本地中文演员</div></div>
+        <div class="stat"><div class="num">4 城</div><div class="lbl">主办演出走遍西班牙</div></div>
+        <div class="stat"><div class="num">6 国</div><div class="lbl">演员巡演覆盖欧洲国家</div></div>
+        <div class="stat wide"><div class="num">13 座城</div><div class="lbl">旗下演员演出足迹 · 反响热烈</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 近期演出 -->
+<section id="next">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">UPCOMING</span>
+      <h2 class="sec-title">近期演出</h2>
+    </div>
+    <div class="next-card reveal">
+      <img class="next-poster" src="images/poster-danliren.jpg" alt="单立人喜剧演出季马德里站官方海报">
+      <div>
+        <div class="date-badge" style="width:118px;height:118px;margin-bottom:20px;">
+          <span class="d">20</span>
+          <span class="m">2026.11</span>
+        </div>
+        <h3>单立人喜剧演出季 · 马德里站</h3>
+        <p class="cast">林简七 · 邱月 · 李梦杰 · 赖铭佳（主持）· 宁家宇</p>
+        <div class="meta">
+          <span class="pill">📍 Sala Fernando de Rojas · Circulo de Bellas Artes</span>
+          <span class="pill">🕔 17:00 下午场 / 20:00 晚间场</span>
+        </div>
+        <p class="note">购票及演出详情请关注微信公众号「灯灯喜剧」获取最新信息。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 曾经的舞台 -->
+<section id="cast">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">PAST SHOWS</span>
+      <h2 class="sec-title">曾经的舞台</h2>
+      <p class="sec-sub">这些演员，都曾把笑声带到西班牙</p>
+    </div>
+    <div class="cast-grid">
+      <div class="cast-card reveal">
+        <span class="yr">2023</span>
+        <div class="avatar"><img src="images/live-heiden.jpg" alt="黑灯演出现场照"></div>
+        <h4>黑灯</h4>
+        <div class="show">专场《你谁啊》</div>
+        <p>"盲目"且自信，极具个人特色的知名脱口秀演员。马德里两场 + 巴塞罗那一场，纯粹的快乐体验。</p>
+      </div>
+      <div class="cast-card reveal">
+        <span class="yr">2024</span>
+        <div class="avatar"><img src="images/live-wangdefa.jpg" alt="汪德发演出现场照"></div>
+        <h4>汪德发</h4>
+        <div class="show">《脱口秀大会》第三、四季卡司</div>
+        <p>线下炸场王，感染力极强。巴塞罗那、马德里两站巡演，笑到你妆都花。</p>
+      </div>
+      <div class="cast-card reveal">
+        <span class="yr">2024</span>
+        <div class="avatar"><img src="images/stage-yushi.jpg" alt="于是演出现场照"></div>
+        <h4>于是</h4>
+        <div class="show">专场《嘎嘎闹心》</div>
+        <p>国内知名独立脱口秀演员，笑果文化与单立人喜剧长期合作演员，曾巡演二十余城。</p>
+      </div>
+      <div class="cast-card reveal">
+        <div class="avatar"><img src="images/live-zilong-portrait.jpg" alt="子龙演出现场照"></div>
+        <h4>子龙</h4>
+        <div class="show">专场《作乐》· 马德里站</div>
+        <p>前摇滚乐队成员、浪漫主义混乱派街头艺术家，舞台表演风格独树一帜，业内公认的线下炸场担当。</p>
+      </div>
+      <div class="cast-card reveal">
+        <div class="avatar">万</div>
+        <h4>万冰冰</h4>
+        <div class="show">巡演嘉宾</div>
+        <p>国内知名脱口秀演员，受邀参与灯灯喜剧西班牙巡演。</p>
+      </div>
+      <div class="cast-card reveal">
+        <div class="avatar">✦</div>
+        <h4>更多演员</h4>
+        <div class="show">单立人喜剧演出季</div>
+        <p>林简七、邱月、李梦杰、赖铭佳、宁家宇——2026 年 11 月，马德里见。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 海报与现场 -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">GALLERY</span>
+      <h2 class="sec-title">海报与现场</h2>
+      <p class="sec-sub">来自公众号推文与演出现场的真实记录</p>
+    </div>
+    <div class="masonry reveal">
+      <figure>
+        <img src="images/poster-danliren.jpg" loading="lazy" alt="单立人喜剧演出季马德里站官方海报">
+        <figcaption><span class="dot-tag">即将上演</span>单立人喜剧演出季 · 马德里站（2026.11.20）</figcaption>
+      </figure>
+      <figure>
+        <img src="images/poster-yushi.jpg" loading="lazy" alt="于是嘎嘎闹心马德里站官方海报">
+        <figcaption><span class="dot-tag">2024</span>于是《嘎嘎闹心》专场 · 马德里站官方海报</figcaption>
+      </figure>
+      <figure>
+        <img src="images/live-zilong.jpg" loading="lazy" alt="子龙作乐马德里演出现场">
+        <figcaption><span class="dot-tag">现场</span>子龙《作乐》· 马德里演出现场</figcaption>
+      </figure>
+      <figure>
+        <img src="images/live-heiden.jpg" loading="lazy" alt="黑灯你谁啊专场现场">
+        <figcaption><span class="dot-tag">现场</span>黑灯《你谁啊》· 专场现场</figcaption>
+      </figure>
+      <figure>
+        <img src="images/reviews-heiden.jpg" loading="lazy" alt="黑灯专场观众评价">
+        <figcaption><span class="dot-tag">口碑</span>黑灯专场 · 小红书观众评价</figcaption>
+      </figure>
+      <figure>
+        <img src="images/tv-wangdefa.jpg" loading="lazy" alt="汪德发在脱口秀大会">
+        <figcaption><span class="dot-tag">卡司</span>汪德发 @《脱口秀大会》</figcaption>
+      </figure>
+      <figure>
+        <img src="images/live-wangdefa.jpg" loading="lazy" alt="汪德发线下演出">
+        <figcaption><span class="dot-tag">现场</span>汪德发 · 线下演出</figcaption>
+      </figure>
+      <figure>
+        <img src="images/live-zilong-portrait.jpg" loading="lazy" alt="子龙演出现场">
+        <figcaption><span class="dot-tag">现场</span>子龙 · 演出现场</figcaption>
+      </figure>
+      <figure>
+        <img src="images/stage-yushi.jpg" loading="lazy" alt="于是笑果脱口秀舞台">
+        <figcaption><span class="dot-tag">卡司</span>于是 · 笑果脱口秀舞台</figcaption>
+      </figure>
+      <figure>
+        <img src="images/venue-danliren.jpg" loading="lazy" alt="Sala Fernando de Rojas剧场内景">
+        <figcaption><span class="dot-tag">剧场</span>Sala Fernando de Rojas 剧场内景</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 加入我们 -->
+<section id="join">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">JOIN US</span>
+      <h2 class="sec-title">站上这个舞台</h2>
+      <p class="sec-sub">灯灯喜剧长期招募，只要你热爱喜剧</p>
+    </div>
+    <div class="join-box">
+      <div class="join-item reveal">
+        <h4>🎤 开放麦演员招募</h4>
+        <p>常驻马德里、巴塞罗那，每月固定开放麦。不限经验、不限背景，你只需要写一段 5 分钟的稿子，大胆站上来——剩下的交给笑声。</p>
+      </div>
+      <div class="join-item reveal">
+        <h4>🎬 演出现场执行</h4>
+        <p>检票、引导、摄影、社群运营……每一场演出的幕后都需要帮手。近距离看演出，还包快乐。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系我们 -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">CONTACT</span>
+      <h2 class="sec-title">联系我们</h2>
+      <p class="sec-sub">演出资讯 · 购票咨询 · 报名上台 · 合作推广</p>
+    </div>
+    <div class="contact-grid reveal">
+      <a class="contact-card" href="#contact">
+        <div class="ico">💬</div>
+        <h4>微信公众号</h4>
+        <div class="val">灯灯喜剧（历史演出资讯与推文）</div>
+      </a>
+      <a class="contact-card" href="https://www.xiaohongshu.com/search_result?keyword=灯灯喜剧" target="_blank" rel="noopener">
+        <div class="ico">📕</div>
+        <h4>小红书</h4>
+        <div class="val">@灯灯喜剧</div>
+      </a>
+      <a class="contact-card" href="https://www.instagram.com/dengdengcomedybcn/" target="_blank" rel="noopener">
+        <div class="ico">📸</div>
+        <h4>Instagram</h4>
+        <div class="val">@dengdengcomedybcn</div>
+      </a>
+      <a class="contact-card" href="mailto:hello@dengdengcomedy.com">
+        <div class="ico">✉️</div>
+        <h4>邮箱</h4>
+        <div class="val">hello@dengdengcomedy.com</div>
+      </a>
+      <div class="contact-card">
+        <img src="images/qr-wechat-wangyi.jpg" alt="灯灯喜剧客服微信二维码" style="width:100%;border:2px solid var(--ink);border-radius:12px;display:block;margin-bottom:14px;">
+        <h4>客服微信 · 王一</h4>
+        <div class="val">扫码添加，备注"灯灯喜剧"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">灯灯喜剧 DENG DENG COMEDY</div>
+  <p style="margin-top:8px;">西班牙本土中文喜剧俱乐部 · 马德里 / 巴塞罗那 · 用真心做喜剧</p>
+  <p style="margin-top:14px;opacity:.5;">© 2026 DengDeng Comedy · Made with ❤️ and laughter</p>
+</footer>
+
+<script>
+  // 滚动渐显
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // 移动端菜单点击后收起
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('open'));
+  });
+</script>
+</body>
+</html>
