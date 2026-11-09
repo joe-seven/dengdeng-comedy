@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-label="灯灯喜剧 Logo">
+  <circle cx="100" cy="100" r="96" fill="#FFDE00" stroke="#16130E" stroke-width="5"/>
+  <g stroke="#16130E" stroke-width="6" stroke-linecap="round" fill="none">
+    <!-- 小人头部 -->
+    <circle cx="72" cy="58" r="11" fill="#16130E" stroke="none"/>
+    <!-- 小人身体 -->
+    <path d="M72 69 L72 112"/>
+    <!-- 小人双臂上扬 -->
+    <path d="M72 82 L48 70"/>
+    <path d="M72 82 L96 70"/>
+    <!-- 小人双腿 -->
+    <path d="M72 112 L56 145"/>
+    <path d="M72 112 L88 145"/>
+    <!-- 麦克风支架 -->
+    <path d="M132 48 L132 145"/>
+    <!-- 麦克风底座 -->
+    <path d="M118 145 L146 145"/>
+    <!-- 麦克风头 -->
+    <ellipse cx="132" cy="36" rx="13" ry="17" fill="#16130E" stroke="none"/>
+  </g>
+</svg>
