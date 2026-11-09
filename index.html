@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>灯灯喜剧 DengDeng Comedy · 西班牙中文喜剧俱乐部</title>
-<meta name="description" content="灯灯喜剧——西班牙本土中文喜剧俱乐部，2023年成立于巴塞罗那，常驻马德里与巴塞罗那，长期举办中文脱口秀开放麦与知名演员巡演。">
+<meta name="description" content="灯灯喜剧——西班牙本土中文喜剧俱乐部，2023年成立于巴塞罗那，现以马德里为主要基地，长期举办中文脱口秀开放麦与知名演员巡演。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Archivo+Black&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/logo-stacked.png">
 <style>
   :root{
     --yellow:#FFDE00;
@@ -39,6 +40,7 @@
     border-bottom:2px solid var(--ink);
   }
   .nav-logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;text-decoration:none;color:var(--ink);}
+  .nav-logo img{height:34px;width:auto;display:block;}
   .nav-logo .dot{width:34px;height:34px;border-radius:50%;background:var(--yellow);border:2px solid var(--ink);display:grid;place-items:center;font-size:16px;font-weight:900;}
   .nav-links{display:flex;gap:26px;align-items:center;}
   .nav-links a{text-decoration:none;color:var(--ink);font-weight:700;font-size:15px;position:relative;padding:2px 0;}
@@ -67,11 +69,12 @@
   }
   .hero-logo{width:min(46vw,240px);margin-bottom:28px;filter:drop-shadow(0 10px 0 rgba(22,19,14,.12));}
   .hero h1{
-    font-size:clamp(44px,9vw,92px);font-weight:900;line-height:1.1;letter-spacing:.04em;
+    font-size:clamp(44px,9vw,92px);font-weight:900;line-height:1.1;letter-spacing:.06em;
+    font-family:"Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
   }
   .hero h1 .eng{
-    display:block;font-family:"Archivo Black",sans-serif;font-size:clamp(15px,2.6vw,24px);
-    letter-spacing:.42em;margin-top:12px;color:var(--ink);opacity:.75;
+    display:block;font-family:"Montserrat","Archivo Black",sans-serif;font-size:clamp(15px,2.6vw,24px);
+    letter-spacing:.55em;margin-top:12px;color:var(--ink);opacity:.75;font-weight:900;
   }
   .hero .tagline{
     margin-top:22px;font-size:clamp(16px,2.6vw,21px);font-weight:700;
@@ -88,8 +91,8 @@
     }
     .hero-inner .halo{left:120px;}
     .hero-logo{width:320px;margin-bottom:0;}
-    .hero h1{font-size:96px;}
-    .hero h1 .eng{font-size:26px;letter-spacing:.5em;}
+    .hero h1{font-size:86px;letter-spacing:.08em;}
+    .hero h1 .eng{font-size:22px;letter-spacing:.6em;}
     .hero .tagline{justify-content:flex-start;font-size:21px;}
     .hero .btns{justify-content:flex-start;}
     .hero .scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);}
@@ -196,6 +199,7 @@
     font-size:26px;font-weight:900;margin-bottom:16px;overflow:hidden;
   }
   .cast-card .avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+  .cast-card .avatar.no-crop img{object-fit:contain;background:var(--paper-2);}
   .cast-card h4{font-size:20px;font-weight:900;}
   .cast-card .show{font-size:14px;font-weight:700;color:var(--red);margin-top:4px;}
   .cast-card p{font-size:14px;margin-top:10px;opacity:.78;}
@@ -234,8 +238,15 @@
     border:2px solid rgba(255,249,232,.25);border-radius:var(--radius);padding:28px;
     background:rgba(255,255,255,.04);
   }
-  .join-item h4{color:var(--yellow);font-size:19px;font-weight:900;margin-bottom:10px;}
-  .join-item p{font-size:15px;color:rgba(255,249,232,.82);}
+  #openmic{background:var(--ink);color:var(--paper);}
+  #openmic .sec-title{color:#fff;}
+  #openmic .sec-sub{color:rgba(255,249,232,.85);}
+  #openmic .join-item{
+    border:2px solid rgba(255,249,232,.25);border-radius:var(--radius);padding:28px;
+    background:rgba(255,255,255,.04);
+  }
+  #openmic .join-item h4{color:var(--yellow);font-size:19px;font-weight:900;margin-bottom:10px;}
+  #openmic .join-item p{font-size:15px;color:rgba(255,249,232,.95);line-height:1.8;}
 
   /* ---------- 联系 ---------- */
   .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
@@ -264,12 +275,14 @@
 
 <!-- 导航 -->
 <nav>
-  <a class="nav-logo" href="#top"><span class="dot">灯</span>灯灯喜剧</a>
+  <a class="nav-logo" href="#top"><img src="images/logo-nav-text.png" alt="灯灯喜剧"></a>
   <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
   <div class="nav-links">
     <a href="#about">关于我们</a>
     <a href="#next">近期演出</a>
-    <a href="#cast">曾经的舞台</a>
+    <a href="#cast">他们来过</a>
+    <a href="#openmic">开放麦</a>
+    <a href="#gallery">现场照片</a>
     <a href="#join">加入我们</a>
     <a class="nav-cta" href="#contact">联系我们</a>
   </div>
@@ -279,35 +292,19 @@
 <header class="hero" id="top">
   <div class="hero-inner">
     <div class="halo"></div>
-    <svg class="hero-logo" viewBox="0 0 200 200" aria-label="灯灯喜剧 Logo">
-    <circle cx="100" cy="100" r="96" fill="#FFDE00" stroke="#16130E" stroke-width="5"/>
-    <!-- 小人 + 麦克风架 -->
-    <g stroke="#16130E" stroke-width="6" stroke-linecap="round" fill="none">
-      <circle cx="72" cy="70" r="11" fill="#16130E" stroke="none"/>
-      <path d="M72 82 L72 122"/>
-      <path d="M72 94 L52 106"/>
-      <path d="M72 94 L92 106"/>
-      <path d="M72 122 L58 150"/>
-      <path d="M72 122 L86 150"/>
-      <!-- 立式麦克风 -->
-      <path d="M128 62 L128 150"/>
-      <path d="M114 150 L142 150"/>
-      <ellipse cx="128" cy="50" rx="13" ry="17" fill="#16130E" stroke="none"/>
-    </g>
-    <text x="100" y="178" text-anchor="middle" font-size="21" font-weight="900" fill="#16130E" font-family="'Noto Sans SC',sans-serif">灯灯喜剧</text>
-  </svg>
+    <img class="hero-logo" src="images/logo-stacked.png" alt="灯灯喜剧 Logo">
     <div>
       <h1>
         灯灯喜剧
-        <span class="eng">DENG DENG COMEDY</span>
+        <span class="eng">DENGDENGCOMEDY</span>
       </h1>
       <div class="tagline">
-        <span class="pill">西班牙本土中文喜剧俱乐部</span>
-        <span class="pill">🇪🇸 马德里 · 巴塞罗那</span>
+        <span class="pill">西班牙中文喜剧俱乐部</span>
+        <span class="pill">常驻马德里</span>
       </div>
       <div class="btns">
-        <a class="btn btn-primary" href="#next">看看近期演出</a>
-        <a class="btn btn-ghost" href="#cast">认识一下我们</a>
+        <a class="btn btn-primary" href="#next">近期演出</a>
+        <a class="btn btn-ghost" href="#join">报名上台</a>
       </div>
     </div>
   </div>
@@ -317,8 +314,8 @@
 <!-- 跑马灯 -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-inner">
-    <span>开放麦 <i class="star">✦</i></span><span>中文脱口秀 <i class="star">✦</i></span><span>专场巡演 <i class="star">✦</i></span><span>马德里 <i class="star">✦</i></span><span>巴塞罗那 <i class="star">✦</i></span><span>用真心做喜剧 <i class="star">✦</i></span>
-    <span>开放麦 <i class="star">✦</i></span><span>中文脱口秀 <i class="star">✦</i></span><span>专场巡演 <i class="star">✦</i></span><span>马德里 <i class="star">✦</i></span><span>巴塞罗那 <i class="star">✦</i></span><span>用真心做喜剧 <i class="star">✦</i></span>
+    <span>开放麦 <i class="star">✦</i></span><span>中文脱口秀 <i class="star">✦</i></span><span>专场巡演 <i class="star">✦</i></span><span>马德里 <i class="star">✦</i></span><span>用真心做喜剧 <i class="star">✦</i></span>
+    <span>开放麦 <i class="star">✦</i></span><span>中文脱口秀 <i class="star">✦</i></span><span>专场巡演 <i class="star">✦</i></span><span>马德里 <i class="star">✦</i></span><span>用真心做喜剧 <i class="star">✦</i></span>
   </div>
 </div>
 
@@ -327,12 +324,12 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-kicker">ABOUT US</span>
-      <h2 class="sec-title">关于灯灯</h2>
-      <p class="sec-sub">一家认真做喜剧的俱乐部</p>
+      <h2 class="sec-title">关于灯灯喜剧</h2>
+      <p class="sec-sub">西班牙中文喜剧俱乐部</p>
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p><strong>灯灯喜剧</strong>是西班牙本土的中文喜剧俱乐部，<strong>2023 年 1 月成立于巴塞罗那</strong>，现常驻马德里与巴塞罗那，长期举办中文喜剧演出。</p>
+        <p><strong>灯灯喜剧</strong>是西班牙本土的中文喜剧俱乐部，<strong>2023 年 1 月成立于巴塞罗那</strong>，现以马德里为主要基地，长期举办中文喜剧演出。</p>
         <p>俱乐部现有多位长居西班牙本地的中文演员，每月举办固定的<strong>开放麦</strong>演出，也定期邀请欧洲各地及国内知名演员前来巡演，希望给观众带来优质的观演体验。</p>
         <p>我们也为想要尝试这种表演模式的你提供平台——你只需要大胆一些、勇于尝试。因为走出这一步，或许你可以发现新世界；即使之后想退一步，你也会获得一种特别的经历。</p>
         <div class="quote">"如何认真对待喜剧？很简单——用真心！"</div>
@@ -355,20 +352,17 @@
       <span class="sec-kicker">UPCOMING</span>
       <h2 class="sec-title">近期演出</h2>
     </div>
-    <div class="next-card reveal">
-      <img class="next-poster" src="images/poster-danliren.jpg" alt="单立人喜剧演出季马德里站官方海报">
+    <div class="next-card reveal" style="grid-template-columns:1fr;text-align:center;">
       <div>
-        <div class="date-badge" style="width:118px;height:118px;margin-bottom:20px;">
-          <span class="d">20</span>
-          <span class="m">2026.11</span>
+        <div style="width:118px;height:118px;margin:0 auto 20px;border:3px solid var(--ink);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--ink);color:#fff;">
+          <span style="font-size:32px;line-height:1;">✦</span>
+          <span style="font-size:14px;margin-top:6px;font-weight:900;letter-spacing:.1em;color:var(--yellow);">敬请期待</span>
         </div>
-        <h3>单立人喜剧演出季 · 马德里站</h3>
-        <p class="cast">林简七 · 邱月 · 李梦杰 · 赖铭佳（主持）· 宁家宇</p>
-        <div class="meta">
-          <span class="pill">📍 Sala Fernando de Rojas · Circulo de Bellas Artes</span>
-          <span class="pill">🕔 17:00 下午场 / 20:00 晚间场</span>
+        <h3>下一场演出正在筹备中</h3>
+        <p class="note" style="font-size:16px;margin-top:12px;">灯灯喜剧正在筹备新的中文喜剧演出，敬请关注微信公众号「灯灯喜剧」获取最新演出资讯与开票通知。</p>
+        <div class="meta" style="justify-content:center;margin-top:18px;">
+          <a class="pill" href="#contact" style="text-decoration:none;color:var(--ink);">关注我们 · 第一时间获取开票信息</a>
         </div>
-        <p class="note">购票及演出详情请关注微信公众号「灯灯喜剧」获取最新信息。</p>
       </div>
     </div>
   </div>
@@ -379,102 +373,96 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-kicker">PAST SHOWS</span>
-      <h2 class="sec-title">曾经的舞台</h2>
+      <h2 class="sec-title">他们来过</h2>
       <p class="sec-sub">这些演员，都曾把笑声带到西班牙</p>
     </div>
     <div class="cast-grid">
       <div class="cast-card reveal">
         <span class="yr">2023</span>
-        <div class="avatar"><img src="images/live-heiden.jpg" alt="黑灯演出现场照"></div>
+        <div class="avatar"><img src="images/cast-heiden.jpg" alt="黑灯演出现场照"></div>
         <h4>黑灯</h4>
         <div class="show">专场《你谁啊》</div>
-        <p>"盲目"且自信，极具个人特色的知名脱口秀演员。马德里两场 + 巴塞罗那一场，纯粹的快乐体验。</p>
+        <p>"盲目"且自信，极具个人特色的知名脱口秀演员。马德里专场演出，纯粹的快乐体验。</p>
       </div>
       <div class="cast-card reveal">
         <span class="yr">2024</span>
-        <div class="avatar"><img src="images/live-wangdefa.jpg" alt="汪德发演出现场照"></div>
+        <div class="avatar"><img src="images/cast-wangdefa.jpg" alt="汪德发演出现场照"></div>
         <h4>汪德发</h4>
-        <div class="show">《脱口秀大会》第三、四季卡司</div>
-        <p>线下炸场王，感染力极强。巴塞罗那、马德里两站巡演，笑到你妆都花。</p>
+        <div class="show">专场《汪德发只能演汪德发》</div>
+        <p>线下炸场王，感染力极强。马德里巡演，笑到你妆都花。</p>
       </div>
       <div class="cast-card reveal">
         <span class="yr">2024</span>
-        <div class="avatar"><img src="images/stage-yushi.jpg" alt="于是演出现场照"></div>
+        <div class="avatar"><img src="images/cast-yushi.jpg" alt="于是演出现场照"></div>
         <h4>于是</h4>
         <div class="show">专场《嘎嘎闹心》</div>
-        <p>国内知名独立脱口秀演员，笑果文化与单立人喜剧长期合作演员，曾巡演二十余城。</p>
+        <p>国内知名独立脱口秀演员，笑果文化长期合作演员，曾巡演二十余城。</p>
       </div>
       <div class="cast-card reveal">
+        <span class="yr">2024</span>
         <div class="avatar"><img src="images/live-zilong-portrait.jpg" alt="子龙演出现场照"></div>
         <h4>子龙</h4>
-        <div class="show">专场《作乐》· 马德里站</div>
+        <div class="show">专场《作乐》</div>
         <p>前摇滚乐队成员、浪漫主义混乱派街头艺术家，舞台表演风格独树一帜，业内公认的线下炸场担当。</p>
       </div>
       <div class="cast-card reveal">
-        <div class="avatar">万</div>
+        <span class="yr">2023</span>
+        <div class="avatar"><img src="images/cast-wanbingbing.jpg" alt="万冰冰演出现场照"></div>
         <h4>万冰冰</h4>
-        <div class="show">巡演嘉宾</div>
+        <div class="show">专场《不懂事儿》</div>
         <p>国内知名脱口秀演员，受邀参与灯灯喜剧西班牙巡演。</p>
-      </div>
-      <div class="cast-card reveal">
-        <div class="avatar">✦</div>
-        <h4>更多演员</h4>
-        <div class="show">单立人喜剧演出季</div>
-        <p>林简七、邱月、李梦杰、赖铭佳、宁家宇——2026 年 11 月，马德里见。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 海报与现场 -->
+<!-- 开放麦 -->
+<section id="openmic">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">OPEN MIC</span>
+      <h2 class="sec-title">开放麦</h2>
+      <p class="sec-sub">每月固定举办，任何人都可以站上舞台</p>
+    </div>
+    <div class="join-box">
+      <div class="join-item reveal">
+        <h4>🎤 什么是开放麦？</h4>
+        <p>开放麦是脱口秀新人试段子的舞台，也是老演员打磨新稿的实验场。灯灯喜剧每月在马德里固定举办开放麦演出，不论你是想第一次试水的新人，还是想练新段子的老手，这里都欢迎你。</p>
+      </div>
+      <div class="join-item reveal">
+        <h4>📝 如何报名上台</h4>
+        <p>准备一段 5 分钟的中文脱口秀稿件，扫码添加客服微信备注「开放麦报名」，告诉我们你想参加的场次和城市。不限经验、不限背景——你只需要大胆一些，剩下的交给笑声。</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;" class="reveal">
+      <a class="btn btn-primary" href="#contact">报名上台</a>
+    </div>
+  </div>
+</section>
+
+<!-- 现场照片 -->
 <section id="gallery">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-kicker">GALLERY</span>
-      <h2 class="sec-title">海报与现场</h2>
-      <p class="sec-sub">来自公众号推文与演出现场的真实记录</p>
+      <h2 class="sec-title">现场照片</h2>
+      <p class="sec-sub">来自演出现场的真实记录</p>
     </div>
     <div class="masonry reveal">
-      <figure>
-        <img src="images/poster-danliren.jpg" loading="lazy" alt="单立人喜剧演出季马德里站官方海报">
-        <figcaption><span class="dot-tag">即将上演</span>单立人喜剧演出季 · 马德里站（2026.11.20）</figcaption>
-      </figure>
-      <figure>
-        <img src="images/poster-yushi.jpg" loading="lazy" alt="于是嘎嘎闹心马德里站官方海报">
-        <figcaption><span class="dot-tag">2024</span>于是《嘎嘎闹心》专场 · 马德里站官方海报</figcaption>
-      </figure>
-      <figure>
-        <img src="images/live-zilong.jpg" loading="lazy" alt="子龙作乐马德里演出现场">
-        <figcaption><span class="dot-tag">现场</span>子龙《作乐》· 马德里演出现场</figcaption>
-      </figure>
-      <figure>
-        <img src="images/live-heiden.jpg" loading="lazy" alt="黑灯你谁啊专场现场">
-        <figcaption><span class="dot-tag">现场</span>黑灯《你谁啊》· 专场现场</figcaption>
-      </figure>
-      <figure>
-        <img src="images/reviews-heiden.jpg" loading="lazy" alt="黑灯专场观众评价">
-        <figcaption><span class="dot-tag">口碑</span>黑灯专场 · 小红书观众评价</figcaption>
-      </figure>
-      <figure>
-        <img src="images/tv-wangdefa.jpg" loading="lazy" alt="汪德发在脱口秀大会">
-        <figcaption><span class="dot-tag">卡司</span>汪德发 @《脱口秀大会》</figcaption>
-      </figure>
-      <figure>
-        <img src="images/live-wangdefa.jpg" loading="lazy" alt="汪德发线下演出">
-        <figcaption><span class="dot-tag">现场</span>汪德发 · 线下演出</figcaption>
-      </figure>
-      <figure>
-        <img src="images/live-zilong-portrait.jpg" loading="lazy" alt="子龙演出现场">
-        <figcaption><span class="dot-tag">现场</span>子龙 · 演出现场</figcaption>
-      </figure>
-      <figure>
-        <img src="images/stage-yushi.jpg" loading="lazy" alt="于是笑果脱口秀舞台">
-        <figcaption><span class="dot-tag">卡司</span>于是 · 笑果脱口秀舞台</figcaption>
-      </figure>
-      <figure>
-        <img src="images/venue-danliren.jpg" loading="lazy" alt="Sala Fernando de Rojas剧场内景">
-        <figcaption><span class="dot-tag">剧场</span>Sala Fernando de Rojas 剧场内景</figcaption>
-      </figure>
+      <figure><img src="images/live-01.jpg" loading="lazy" alt="灯灯喜剧演出现场"><figcaption><span class="dot-tag">现场</span>灯灯喜剧演出现场</figcaption></figure>
+      <figure><img src="images/live-02.jpg" loading="lazy" alt="灯灯喜剧演出场地"><figcaption><span class="dot-tag">现场</span>灯灯喜剧演出场地</figcaption></figure>
+      <figure><img src="images/live-03.jpg" loading="lazy" alt="灯灯喜剧演出现场"><figcaption><span class="dot-tag">现场</span>灯灯喜剧演出现场</figcaption></figure>
+      <figure><img src="images/live-04.jpg" loading="lazy" alt="灯灯喜剧观众合影"><figcaption><span class="dot-tag">观众</span>灯灯喜剧观众合影</figcaption></figure>
+      <figure><img src="images/live-05.jpg" loading="lazy" alt="灯灯喜剧演员合影"><figcaption><span class="dot-tag">合影</span>灯灯喜剧演员合影</figcaption></figure>
+      <figure><img src="images/live-06.jpg" loading="lazy" alt="灯灯喜剧演出现场"><figcaption><span class="dot-tag">现场</span>灯灯喜剧演出现场</figcaption></figure>
+      <figure><img src="images/live-07.jpg" loading="lazy" alt="灯灯喜剧演出现场"><figcaption><span class="dot-tag">现场</span>灯灯喜剧演出现场</figcaption></figure>
+      <figure><img src="images/live-08.jpg" loading="lazy" alt="灯灯喜剧开放麦"><figcaption><span class="dot-tag">开放麦</span>灯灯喜剧开放麦</figcaption></figure>
+      <figure><img src="images/live-09.jpg" loading="lazy" alt="灯灯喜剧演员合影"><figcaption><span class="dot-tag">合影</span>灯灯喜剧演员合影</figcaption></figure>
+      <figure><img src="images/live-10.jpg" loading="lazy" alt="灯灯喜剧现场观众"><figcaption><span class="dot-tag">观众</span>灯灯喜剧现场观众</figcaption></figure>
+      <figure><img src="images/live-11.jpg" loading="lazy" alt="灯灯喜剧团队合影"><figcaption><span class="dot-tag">合影</span>灯灯喜剧团队合影</figcaption></figure>
+      <figure><img src="images/live-12.jpg" loading="lazy" alt="灯灯喜剧演出现场"><figcaption><span class="dot-tag">现场</span>灯灯喜剧演出现场</figcaption></figure>
+      <figure><img src="images/live-13.jpg" loading="lazy" alt="灯灯喜剧演出现场"><figcaption><span class="dot-tag">现场</span>灯灯喜剧演出现场</figcaption></figure>
+      <figure><img src="images/live-14.jpg" loading="lazy" alt="灯灯喜剧演出现场"><figcaption><span class="dot-tag">现场</span>灯灯喜剧演出现场</figcaption></figure>
     </div>
   </div>
 </section>
@@ -490,7 +478,7 @@
     <div class="join-box">
       <div class="join-item reveal">
         <h4>🎤 开放麦演员招募</h4>
-        <p>常驻马德里、巴塞罗那，每月固定开放麦。不限经验、不限背景，你只需要写一段 5 分钟的稿子，大胆站上来——剩下的交给笑声。</p>
+        <p>常驻马德里，每月固定开放麦。不限经验、不限背景，你只需要写一段 5 分钟的稿子，大胆站上来——剩下的交给笑声。</p>
       </div>
       <div class="join-item reveal">
         <h4>🎬 演出现场执行</h4>
@@ -539,9 +527,10 @@
 </section>
 
 <footer>
-  <div class="brand">灯灯喜剧 DENG DENG COMEDY</div>
-  <p style="margin-top:8px;">西班牙本土中文喜剧俱乐部 · 马德里 / 巴塞罗那 · 用真心做喜剧</p>
+  <div class="brand">灯灯喜剧 DENGDENGCOMEDY</div>
+  <p style="margin-top:8px;">西班牙本土中文喜剧俱乐部 · 马德里 · 用真心做喜剧</p>
   <p style="margin-top:14px;opacity:.5;">© 2026 DengDeng Comedy · Made with ❤️ and laughter</p>
+  <p style="margin-top:10px;opacity:.4;font-size:12px;">致谢脱口秀演员 Seven 为搭建本网站做出的卓越贡献</p>
 </footer>
 
 <script>
